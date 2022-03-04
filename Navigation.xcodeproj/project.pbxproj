@@ -16,7 +16,6 @@
 		3172D1CF27CA648B009A4C28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172D1CE27CA648B009A4C28 /* TabBarController.swift */; };
 		3172D1D127CA7A6C009A4C28 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172D1D027CA7A6C009A4C28 /* Code.swift */; };
 		3172D1D327CA7C32009A4C28 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172D1D227CA7C32009A4C28 /* InfoViewController.swift */; };
-		3172D1D527CA7C5B009A4C28 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172D1D427CA7C5B009A4C28 /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		3172D1CE27CA648B009A4C28 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		3172D1D027CA7A6C009A4C28 /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
 		3172D1D227CA7C32009A4C28 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		3172D1D427CA7C5B009A4C28 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +85,6 @@
 				3172D1C527CA29C5009A4C28 /* FeedViewController.swift */,
 				3172D1CC27CA6314009A4C28 /* PostViewController.swift */,
 				3172D1D227CA7C32009A4C28 /* InfoViewController.swift */,
-				3172D1D427CA7C5B009A4C28 /* AlertController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,7 +174,6 @@
 				3172D1C827CA29DB009A4C28 /* ProfileViewController.swift in Sources */,
 				3172D1CF27CA648B009A4C28 /* TabBarController.swift in Sources */,
 				3172D1D327CA7C32009A4C28 /* InfoViewController.swift in Sources */,
-				3172D1D527CA7C5B009A4C28 /* AlertController.swift in Sources */,
 				3172D1B027C9FE60009A4C28 /* AppDelegate.swift in Sources */,
 				3172D1D127CA7A6C009A4C28 /* Code.swift in Sources */,
 				3172D1CD27CA6314009A4C28 /* PostViewController.swift in Sources */,

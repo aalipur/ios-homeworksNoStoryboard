@@ -28,7 +28,6 @@ class FeedViewController: UIViewController {
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(openNextView), for: .touchUpInside)
     }
-    
     @objc func openNextView() {
         let nextVc = PostViewController(titlePostViewController: post.title)
         present(UINavigationController(rootViewController: nextVc), animated: true, completion: nil)
