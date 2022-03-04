@@ -18,7 +18,6 @@ class TabBarController: UITabBarController {
     func setupTabBar() {
         let profileViewController = createNavController(vc: ProfileViewController(), itemName: "Profile", itemImage: "person.crop.circle")
         let feedViewController = createNavController(vc: FeedViewController(), itemName: "Feed", itemImage: "list.dash")
-        //let postViewController = createNavController(vc: PostViewController(), itemName: "Post", itemImage: "text.justify.left")
         viewControllers = [profileViewController, feedViewController]
     }
     

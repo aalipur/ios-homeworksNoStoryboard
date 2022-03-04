@@ -30,8 +30,8 @@ class FeedViewController: UIViewController {
     }
     
     @objc func openNextView() {
-        let nextVc = PostViewController()
-        present(nextVc, animated: true, completion: nil)
+        let nextVc = PostViewController(titlePostViewController: post.title)
+        present(UINavigationController(rootViewController: nextVc), animated: true, completion: nil)
     }
     
 }
