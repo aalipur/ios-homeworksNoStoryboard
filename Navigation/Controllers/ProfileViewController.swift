@@ -20,7 +20,6 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileHeader)
     }
     override func viewWillLayoutSubviews() {
-        profileHeader.frame = view.frame.self
+        profileHeader.frame = self.view.frame
     }
-    
 }
