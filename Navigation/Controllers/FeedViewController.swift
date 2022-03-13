@@ -9,28 +9,62 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
-    let post = Post(title: "My post")
+    private let post = Post(title: "My post")
+    private let buttonOne: UIButton = {
+       let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Show post", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(openPostViewController), for: .touchUpInside)
+        return button
+    }()
+    private let buttonTwo: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Show post one more time", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 20
+        button.addTarget(self, action: #selector(openPostViewController), for: .touchUpInside)
+        return button
+    }()
+    private let stackView: UIStackView = {
+       let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.backgroundColor = .red
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fillEqually
+        stack.spacing = 10
+        return stack
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Feed"
         view.backgroundColor = .systemGray3
-        button()
+        view.addSubview(buttonOne)
+        layout()
+        setupConstraints()
     }
-
-    func button() {
-        let button = UIButton(frame: CGRect(x: 100, y: 50, width: 160, height: 50))
-        view.addSubview(button)
-        button.setTitle("Show post", for: .normal)
-        button.backgroundColor = .red
-        button.center = view.center
-        button.layer.cornerRadius = 12
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(openNextView), for: .touchUpInside)
+    private func layout() {
+        [buttonOne, buttonTwo].forEach{ stackView.addArrangedSubview($0) }
+        [stackView].forEach{ view.addSubview($0) }
     }
-    @objc func openNextView() {
-        let nextVc = PostViewController(titlePostViewController: post.title)
-        present(UINavigationController(rootViewController: nextVc), animated: true, completion: nil)
+    //MARK: set up constraints
+    private func setupConstraints() {
+        NSLayoutConstraint.activate([
+            stackView.heightAnchor.constraint(equalToConstant: 150),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
-    
+    @objc private func openPostViewController() {
+        let postController = PostViewController(titlePostViewController: post.title)
+        navigationController?.pushViewController(postController, animated: true)
+    }
 }
