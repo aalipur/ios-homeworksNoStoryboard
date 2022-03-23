@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		316ED7E327E5A2A4007D3A9B /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316ED7E227E5A2A4007D3A9B /* LogInViewController.swift */; };
 		3172D1B027C9FE60009A4C28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3172D1AF27C9FE60009A4C28 /* AppDelegate.swift */; };
 		3172D1B927C9FE61009A4C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3172D1B827C9FE61009A4C28 /* Assets.xcassets */; };
 		3172D1BC27C9FE61009A4C28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3172D1BA27C9FE61009A4C28 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		316ED7E227E5A2A4007D3A9B /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3172D1AC27C9FE60009A4C28 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3172D1AF27C9FE60009A4C28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3172D1B827C9FE61009A4C28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				3172D1CE27CA648B009A4C28 /* TabBarController.swift */,
+				316ED7E227E5A2A4007D3A9B /* LogInViewController.swift */,
 				3172D1C727CA29DB009A4C28 /* ProfileViewController.swift */,
 				3172D1C527CA29C5009A4C28 /* FeedViewController.swift */,
 				3172D1CC27CA6314009A4C28 /* PostViewController.swift */,
@@ -183,6 +186,7 @@
 			files = (
 				3172D1C627CA29C5009A4C28 /* FeedViewController.swift in Sources */,
 				3172D1C827CA29DB009A4C28 /* ProfileViewController.swift in Sources */,
+				316ED7E327E5A2A4007D3A9B /* LogInViewController.swift in Sources */,
 				3172D1CF27CA648B009A4C28 /* TabBarController.swift in Sources */,
 				3172D1D327CA7C32009A4C28 /* InfoViewController.swift in Sources */,
 				3172D1B027C9FE60009A4C28 /* AppDelegate.swift in Sources */,

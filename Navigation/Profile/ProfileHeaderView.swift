@@ -37,6 +37,7 @@ class ProfileHeaderView: UIView {
         field.keyboardAppearance = .default
         field.returnKeyType = .default
         field.autocorrectionType = .yes
+        field.backgroundColor = .white
         return field
     }()
     private let setStatusButton: UIButton = {
@@ -46,7 +47,7 @@ class ProfileHeaderView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 4
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.addTarget(ProfileHeaderView.self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
     private let statusLabel: UILabel = {
@@ -100,7 +101,7 @@ class ProfileHeaderView: UIView {
             setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0)
         ])
     }
-    @objc func buttonPressed() {
+    @objc private func buttonPressed() {
         statusLabel.text = statusTextField.text
         statusTextField.text = ""
     }
