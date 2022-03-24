@@ -17,7 +17,7 @@ class FeedViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 20
-        button.addTarget(FeedViewController.self, action: #selector(openPostViewController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(openPostViewController), for: .touchUpInside)
         return button
     }()
     private let buttonTwo: UIButton = {
@@ -27,7 +27,7 @@ class FeedViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
         button.layer.cornerRadius = 20
-        button.addTarget(FeedViewController.self, action: #selector(openPostViewController), for: .touchUpInside)
+        button.addTarget(self, action: #selector(openPostViewController), for: .touchUpInside)
         return button
     }()
     private let stackView: UIStackView = {

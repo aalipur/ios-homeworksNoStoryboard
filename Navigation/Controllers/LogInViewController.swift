@@ -68,7 +68,7 @@ class LogInViewController: UIViewController {
         button.setBackgroundImage(UIImage(named: "blue_pixel"), for: .normal)
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
-        button.addTarget(LogInViewController.self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
     private let scrollView: UIScrollView = {
@@ -142,7 +142,9 @@ class LogInViewController: UIViewController {
     
     //MARK: @objc func
     @objc private func buttonPressed() {
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
+        let tabBar = TabBarController()
+        tabBar.modalPresentationStyle = .fullScreen
+        present(TabBarController(), animated: true)
     }
     @objc private func keyboardShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
