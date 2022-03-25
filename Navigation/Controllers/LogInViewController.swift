@@ -60,7 +60,7 @@ class LogInViewController: UIViewController {
         textField.isSecureTextEntry = true
         return textField
     }()
-    private let logInButton: UIButton = {
+    lazy var logInButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Log In", for: .normal)

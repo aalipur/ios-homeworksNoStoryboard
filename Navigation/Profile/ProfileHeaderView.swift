@@ -33,6 +33,9 @@ class ProfileHeaderView: UIView {
        let field = UITextField()
         field.placeholder = "Waiting for something..."
         field.translatesAutoresizingMaskIntoConstraints = false
+        field.layer.cornerRadius = 6
+        field.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: field.frame.height))
+        field.leftViewMode = .always
         field.keyboardType = .default
         field.keyboardAppearance = .default
         field.returnKeyType = .default

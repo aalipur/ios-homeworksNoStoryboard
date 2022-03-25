@@ -10,7 +10,7 @@ import UIKit
 class FeedViewController: UIViewController {
 
     private let post = Post(title: "My post")
-    private let buttonOne: UIButton = {
+    lazy var buttonOne: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Show post", for: .normal)
@@ -20,7 +20,7 @@ class FeedViewController: UIViewController {
         button.addTarget(self, action: #selector(openPostViewController), for: .touchUpInside)
         return button
     }()
-    private let buttonTwo: UIButton = {
+    lazy var buttonTwo: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Show post one more time", for: .normal)
