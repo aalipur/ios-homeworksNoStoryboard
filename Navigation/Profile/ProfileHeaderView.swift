@@ -39,7 +39,7 @@ class ProfileHeaderView: UIView {
         field.autocorrectionType = .yes
         return field
     }()
-    private let setStatusButton: UIButton = {
+    private lazy var setStatusButton: UIButton = {
        let button = UIButton()
         button.setTitle("Show status", for: .normal)
         button.setTitleColor(.white, for: .normal)
