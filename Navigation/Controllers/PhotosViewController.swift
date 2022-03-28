@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol MyViewDelegate: AnyObject {
+    func cellTapped()
+}
+
 class PhotosViewController: UIViewController {
     
     private let arrayOfImage = [
@@ -86,4 +90,13 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         sideInset
     }
+}
+
+extension PhotosViewController: MyViewDelegate {
+    func cellTapped() {
+        self.navigationController?.pushViewController(PhotosViewController(), animated: true)
+    }
+    
+    
+    
 }

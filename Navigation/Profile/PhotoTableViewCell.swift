@@ -14,6 +14,7 @@ class PhotoTableViewCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    weak var delegate: MyViewDelegate?
     private let randomImageViewOne = createUIImageView(name: randomNameOne)
     private let randomImageViewTwo = createUIImageView(name: randomNameTwo)
     private let randomImageViewThree = createUIImageView(name: randomNameThree)
@@ -56,7 +57,7 @@ class PhotoTableViewCell: UITableViewCell {
             randomImageViewOne.heightAnchor.constraint(equalToConstant: sideSize),
             randomImageViewOne.widthAnchor.constraint(equalToConstant: sideSize),
             randomImageViewOne.topAnchor.constraint(equalTo: content.topAnchor,constant: 8),
-            randomImageViewOne.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 8),
+            randomImageViewOne.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 16),
             randomImageViewOne.bottomAnchor.constraint(equalTo: content.bottomAnchor, constant: -8),
             
             randomImageViewTwo.heightAnchor.constraint(equalToConstant: sideSize),

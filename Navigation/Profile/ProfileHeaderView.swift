@@ -67,6 +67,7 @@ class ProfileHeaderView: UIView {
         table.delegate = self
         return table
     }()
+    weak var delegate: MyViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -134,8 +135,7 @@ extension ProfileHeaderView: UITextFieldDelegate {
 extension ProfileHeaderView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        //present(UINavigationController(rootViewController: PhotosViewController()), animated: true, completion: nil)
+        delegate?.cellTapped()
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true)
