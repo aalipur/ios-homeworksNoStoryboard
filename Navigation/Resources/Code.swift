@@ -32,13 +32,46 @@ struct Image {
     static let ppk = UIImage(named: "ppk")!, shokran = UIImage(named: "shokran")!
     static let deftones = UIImage(named: "ohms")!, sinatra = UIImage(named: "sinatra")!
 }
-let arrayOfPhotos = [UIImage(named: "6")!,UIImage(named: "alison")!,UIImage(named: "amy")!,UIImage(named: "architects")!,
-                     UIImage(named: "chem")!,UIImage(named: "coal")!,UIImage(named: "doom")!,UIImage(named: "gray")!,
-                     UIImage(named: "hacktivist")!,UIImage(named: "halloats")!,UIImage(named: "king")!,UIImage(named: "korn")!,
-                     UIImage(named: "laura")!,UIImage(named: "marvin")!,UIImage(named: "mister")!,UIImage(named: "northlane")!,
-                     UIImage(named: "ohms")!,UIImage(named: "ppk")!,UIImage(named: "shokran")!,UIImage(named: "sinatra")!]
+let arrayOfPhotos = [createUIImageView(name: "6"),createUIImageView(name: "alison"),createUIImageView(name: "amy"),
+                     createUIImageView(name: "architects"),createUIImageView(name: "chem"),createUIImageView(name: "coal"),
+                     createUIImageView(name: "doom"),createUIImageView(name: "gray"),createUIImageView(name: "hacktivist"),
+                     createUIImageView(name: "halloats"),createUIImageView(name: "king"),createUIImageView(name: "korn"),
+                     createUIImageView(name: "laura"),createUIImageView(name: "marvin"),createUIImageView(name: "mister"),
+                     createUIImageView(name: "northlane"),createUIImageView(name: "ohms"),createUIImageView(name: "ppk"),
+                     createUIImageView(name: "shokran"),createUIImageView(name: "sinatra")]
 struct CustomData {
     
     var image = UIImage()
 }
 
+func createUIImageView(name: String) -> UIImageView {
+    let imageView = UIImageView()
+     imageView.image = UIImage(named: name)
+     imageView.translatesAutoresizingMaskIntoConstraints = false
+     return imageView
+}
+let cars = ["BMW"]
+struct Photo {
+    
+    let image: UIImage
+    
+    static func makeView() -> UIImage {
+        UIImage(named: "6")!
+    }
+}
+let photo = Photo.makeView()
+let arrayOfPhotoNames = ["6","alison","amy","architects","chem","coal","doom","gray","hacktivist","halloats","king","korn",
+                         "laura", "marvin","mister","northlane","ohms","ppk","shokran","sinatra"]
+func randomNameArray() -> [String] {
+    var setOfNames: Set<String> = []
+    repeat {
+        if let name = arrayOfPhotoNames.randomElement() {
+                    setOfNames.insert(name)
+                }
+    } while setOfNames.count < 3
+    return Array(setOfNames)
+}
+let arrOfNames = randomNameArray()
+let randomNameOne = arrOfNames[0]
+let randomNameTwo = arrOfNames[1]
+let randomNameThree = arrOfNames[2]

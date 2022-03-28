@@ -13,7 +13,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
-        image.clipsToBounds = true
         return image
     }()
     var data: CustomData?{
@@ -24,13 +23,19 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        //contentView.backgroundColor = .red
-        contentView.addSubview(image)
-        contentView.layer.cornerRadius = 12
+        setupCell()
         setupConstraints()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    //MARK: functions
+    private func setupCell() {
+        //contentView.addSubview(image)
+        contentView.layer.cornerRadius = 12
+        contentView.layer.borderWidth = 2
+        contentView.layer.borderColor = UIColor.black.cgColor
+        contentView.clipsToBounds = true
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([

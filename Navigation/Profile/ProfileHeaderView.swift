@@ -57,6 +57,16 @@ class ProfileHeaderView: UIView {
         label.textColor = UIColor.black
         return label
     }()
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(PhotoTableViewCell.self, forCellReuseIdentifier: String.init(describing: PhotoTableViewCell.self))
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 50
+        table.dataSource = self
+        table.delegate = self
+        return table
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -75,6 +85,7 @@ class ProfileHeaderView: UIView {
         addSubview(statusTextField)
         addSubview(setStatusButton)
         addSubview(statusLabel)
+        addSubview(tableView)
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -94,6 +105,11 @@ class ProfileHeaderView: UIView {
             statusLabel.topAnchor.constraint(equalTo: fullNameLabel.bottomAnchor, constant: 15),
             statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 15),
             
+            tableView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 20),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableView.heightAnchor.constraint(equalToConstant: 116),
+            
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
             setStatusButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
@@ -111,5 +127,28 @@ extension ProfileHeaderView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+}
+//MARK: extensions
+extension ProfileHeaderView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //present(UINavigationController(rootViewController: PhotosViewController()), animated: true, completion: nil)
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
+    }
+}
+extension ProfileHeaderView: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: PhotoTableViewCell.self), for: indexPath) as! PhotoTableViewCell
+        cell.accessoryType = .disclosureIndicator
+        return cell
     }
 }

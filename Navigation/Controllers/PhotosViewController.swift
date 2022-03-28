@@ -60,7 +60,6 @@ extension PhotosViewController: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.identifier, for: indexPath) as! PhotoCollectionViewCell
-        //cell.contentView.addSubview(<#T##view: UIView##UIView#>)
         cell.data = arrayOfImage[indexPath.item]
         return cell
     }
