@@ -71,7 +71,7 @@ class ProfileHeaderView: UIView {
         table.delegate = self
         return table
     }()
-    weak var delegate: MyViewDelegate?
+    private lazy var tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,6 +91,7 @@ class ProfileHeaderView: UIView {
         addSubview(setStatusButton)
         addSubview(statusLabel)
         addSubview(tableView)
+        self.avatarImageView.addGestureRecognizer(tapGesture)
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -121,6 +122,10 @@ class ProfileHeaderView: UIView {
             setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0)
         ])
     }
+    //MARK: objc functions
+    @objc private func tapAction() {
+        print("Tap")
+    }
     @objc func buttonPressed() {
         statusLabel.text = statusTextField.text
         statusTextField.text = ""
@@ -139,7 +144,7 @@ extension ProfileHeaderView: UITextFieldDelegate {
 extension ProfileHeaderView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.cellTapped()
+        
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true)

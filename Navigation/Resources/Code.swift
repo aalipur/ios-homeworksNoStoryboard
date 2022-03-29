@@ -68,10 +68,11 @@ func randomNameArray() -> [String] {
         if let name = arrayOfPhotoNames.randomElement() {
                     setOfNames.insert(name)
                 }
-    } while setOfNames.count < 3
+    } while setOfNames.count < 4
     return Array(setOfNames)
 }
 let arrOfNames = randomNameArray()
 let randomNameOne = arrOfNames[0]
 let randomNameTwo = arrOfNames[1]
 let randomNameThree = arrOfNames[2]
+let randomNameFour = arrOfNames[3]

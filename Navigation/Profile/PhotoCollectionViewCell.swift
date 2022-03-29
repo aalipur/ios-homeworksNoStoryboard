@@ -31,7 +31,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     //MARK: functions
     private func setupCell() {
-        //contentView.addSubview(image)
+        contentView.addSubview(image)
         contentView.layer.cornerRadius = 12
         contentView.layer.borderWidth = 2
         contentView.layer.borderColor = UIColor.black.cgColor
