@@ -14,12 +14,14 @@ class ProfileViewController: UIViewController {
         imageView.image = UIImage(named: "vorratokon")
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isUserInteractionEnabled = true
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 60
         imageView.layer.borderWidth = 3
         imageView.layer.borderColor = UIColor.white.cgColor
         return imageView
     }()
+    
     private let fullNameLabel: UILabel = {
        let profileName = UILabel()
         profileName.text = "Hipster Cat"
@@ -28,6 +30,7 @@ class ProfileViewController: UIViewController {
         profileName.textColor = UIColor.black
         return profileName
     }()
+    
     private let statusTextField: UITextField = {
        let field = UITextField()
         field.placeholder = "Waiting for something..."
@@ -74,6 +77,7 @@ class ProfileViewController: UIViewController {
         setupView()
         setupTable()
         setupConstraints()
+        setupGesture()
     }
     override func viewWillLayoutSubviews() {
         
@@ -87,6 +91,11 @@ class ProfileViewController: UIViewController {
     private func setupTable() {
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    //MARK: gesture
+    private func setupGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        avatarImageView.addGestureRecognizer(tapGesture)
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -119,9 +128,14 @@ class ProfileViewController: UIViewController {
     }
     //MARK: @objc functions
     @objc private func tapAction() {
+        //let tappedImage =
         print("Tap")
+        let positionAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
+        positionAnimation.fromValue = avatarImageView.centerYAnchor
+        positionAnimation.toValue = CGPoint(x: view.center.x, y: view.center.y)
+        
     }
-    @objc func buttonPressed() {
+    @objc private func buttonPressed() {
         statusLabel.text = statusTextField.text
         statusTextField.text = ""
     }

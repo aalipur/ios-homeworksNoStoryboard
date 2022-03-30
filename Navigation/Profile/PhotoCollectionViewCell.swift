@@ -15,12 +15,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         image.contentMode = .scaleToFill
         return image
     }()
+    
     var data: CustomData?{
         didSet {
             guard let data = data else { return }
             image.image = data.image
         }
     }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()

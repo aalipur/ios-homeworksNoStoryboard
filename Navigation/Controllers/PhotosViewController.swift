@@ -71,10 +71,6 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     private var sideInset: CGFloat { 8 }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item % 3 == 0 {
-            let width = collectionView.bounds.width - sideInset * 2
-            return CGSize(width: width , height: width )
-        }
         let width = (collectionView.bounds.width - sideInset * 3) / 2
         return CGSize(width: width , height: width)
     }

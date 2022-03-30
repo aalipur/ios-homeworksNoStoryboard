@@ -15,6 +15,7 @@ class PhotoTableViewCell: UITableViewCell {
         view.backgroundColor = .white
         return view
     }()
+    
     private let cellLabel: UILabel = {
       let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -23,12 +24,14 @@ class PhotoTableViewCell: UITableViewCell {
         label.font = UIFont(name: "bold", size: 24)
         return label
     }()
+    
     private let arrowSign: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "arrow.right")
         return imageView
     }()
+    
     private let randomImageViewOne = createUIImageView(name: randomNameOne)
     private let randomImageViewTwo = createUIImageView(name: randomNameTwo)
     private let randomImageViewThree = createUIImageView(name: randomNameThree)
