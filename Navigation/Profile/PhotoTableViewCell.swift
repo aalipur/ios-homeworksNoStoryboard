@@ -52,26 +52,14 @@ class PhotoTableViewCell: UITableViewCell {
         [cellLabel, arrowSign,randomImageViewOne, randomImageViewTwo, randomImageViewThree, randomImageViewFour].forEach { content.addSubview($0) }
         
         let cornerRadius: CGFloat = 6
-        let borderWidth: CGFloat = 2
         
         randomImageViewOne.layer.cornerRadius = cornerRadius
-        randomImageViewOne.layer.borderWidth = borderWidth
-        randomImageViewOne.layer.borderColor = UIColor.black.cgColor
         randomImageViewOne.clipsToBounds = true
-        
         randomImageViewTwo.layer.cornerRadius = cornerRadius
-        randomImageViewTwo.layer.borderWidth = borderWidth
-        randomImageViewTwo.layer.borderColor = UIColor.black.cgColor
         randomImageViewTwo.clipsToBounds = true
-        
         randomImageViewThree.layer.cornerRadius = cornerRadius
-        randomImageViewThree.layer.borderWidth = borderWidth
-        randomImageViewThree.layer.borderColor = UIColor.black.cgColor
         randomImageViewThree.clipsToBounds = true
-        
         randomImageViewFour.layer.cornerRadius = cornerRadius
-        randomImageViewFour.layer.borderWidth = borderWidth
-        randomImageViewFour.layer.borderColor = UIColor.black.cgColor
         randomImageViewFour.clipsToBounds = true
     }
     private func setupConstraints() {

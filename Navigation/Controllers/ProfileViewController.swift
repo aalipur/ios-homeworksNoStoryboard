@@ -45,6 +45,7 @@ class ProfileViewController: UIViewController {
         field.backgroundColor = .white
         return field
     }()
+    
     private lazy var setStatusButton: UIButton = {
        let button = UIButton()
         button.setTitle("Show status", for: .normal)
@@ -55,6 +56,7 @@ class ProfileViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
+    
     private let statusLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -63,6 +65,7 @@ class ProfileViewController: UIViewController {
         label.textColor = UIColor.black
         return label
     }()
+    
     private let tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false

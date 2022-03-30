@@ -16,6 +16,7 @@ class HeaderTableView: UIView {
         label.font = UIFont(name: "bold", size: 18)
         return label
     }()
+    
     private let arrowSign: UIImageView = {
        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
