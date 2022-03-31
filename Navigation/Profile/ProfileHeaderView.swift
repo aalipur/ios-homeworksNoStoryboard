@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
+    private let arrayOfPosts = PostModel.makeModel()
     private let avatarImageView: UIImageView = {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "vorratokon")
@@ -45,7 +46,7 @@ class ProfileHeaderView: UIView {
     }()
     private let setStatusButton: UIButton = {
        let button = UIButton()
-        button.setTitle("Show status", for: .normal)
+        button.setTitle("Set status", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemBlue
@@ -61,12 +62,20 @@ class ProfileHeaderView: UIView {
         label.textColor = UIColor.black
         return label
     }()
+    private let tableView: UITableView = {
+       let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.register(CustomTableViewCell.self, forCellReuseIdentifier: String.init(describing: CustomTableViewCell.self))
+        table.backgroundColor = .white
+        return table
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .lightGray
         statusTextField.delegate = self
         setupViews()
+        setupTable()
         setupConstraints()
     }
     required init?(coder: NSCoder) {
@@ -74,11 +83,11 @@ class ProfileHeaderView: UIView {
     }
     
     private func setupViews() {
-        addSubview(avatarImageView)
-        addSubview(fullNameLabel)
-        addSubview(statusTextField)
-        addSubview(setStatusButton)
-        addSubview(statusLabel)
+        [avatarImageView, fullNameLabel, statusTextField, setStatusButton, statusLabel, tableView].forEach{ addSubview($0) }
+    }
+    private func setupTable() {
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -99,9 +108,14 @@ class ProfileHeaderView: UIView {
             statusLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 15),
             
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            setStatusButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: 0),
-            setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0)
+            setStatusButton.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 16),
+            setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            
+            tableView.topAnchor.constraint(equalTo: setStatusButton.bottomAnchor, constant: 16),
+            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     @objc private func buttonPressed() {
@@ -109,11 +123,27 @@ class ProfileHeaderView: UIView {
         statusTextField.text = ""
     }
 }
-
+//MARK: extensions
 extension ProfileHeaderView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+extension ProfileHeaderView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        arrayOfPosts.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: CustomTableViewCell.self), for: indexPath) as! CustomTableViewCell
+        cell.setupCell(model: arrayOfPosts[indexPath.row])
+        return cell
+    }
+}
+extension ProfileHeaderView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
     }
 }
