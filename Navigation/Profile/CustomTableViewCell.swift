@@ -19,13 +19,15 @@ class CustomTableViewCell: UITableViewCell {
     private let author: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.numberOfLines = 2
         return label
     }()
     
     private let descriptionPost: UILabel = {
        let text = UILabel()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.font = UIFont(name: "system", size: 14)
+        text.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         text.textColor = .systemGray
         text.numberOfLines = 0
         return text
@@ -42,7 +44,7 @@ class CustomTableViewCell: UITableViewCell {
     private let likesLabel: UILabel = {
         let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
-         label.font = UIFont(name: "system", size: 16)
+         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
          label.textColor = .black
          return label
     }()
@@ -50,7 +52,7 @@ class CustomTableViewCell: UITableViewCell {
     private let viewsLabel: UILabel = {
         let label = UILabel()
          label.translatesAutoresizingMaskIntoConstraints = false
-         label.font = UIFont(name: "system", size: 16)
+         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
          label.textColor = .black
          return label
     }()
