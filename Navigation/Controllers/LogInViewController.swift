@@ -142,9 +142,11 @@ class LogInViewController: UIViewController {
     
     //MARK: @objc func
     @objc private func buttonPressed() {
-        let tabBar = TabBarController()
-        tabBar.modalPresentationStyle = .fullScreen
-        present(TabBarController(), animated: true)
+//        let tabBar = TabBarController()
+//        tabBar.modalPresentationStyle = .fullScreen
+//        present(TabBarController(), animated: true)
+        let profile = ProfileViewController()
+        navigationController?.pushViewController(profile, animated: true)
     }
     @objc private func keyboardShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
